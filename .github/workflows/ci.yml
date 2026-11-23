@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run ruff check src tests scripts build.py
+      - run: uv run ruff format --check src tests scripts build.py
+      - run: uv run pytest
+      - run: uv run python scripts/check_style.py
+      - run: uv run python build.py
+      - uses: actions/upload-artifact@v5
+        with:
+          name: cloneclient-windows
+          path: dist/CloneClient.exe

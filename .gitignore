@@ -1,0 +1,64 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# PyInstaller and release artifacts
+build/*
+!build/app.spec
+!build/version_info.txt
+dist/
+*.exe
+
+# Generated Java tools and runtime
+tools/*.jar
+tools/*.part
+runtime/
+runtime.tmp/
+
+# Application inputs and outputs
+.cache/
+output/
+*.apk
+*.xapk
+*.apks
+*.aab
+*.obb
+*.idsig
+
+# Signing material and secrets
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+keystore/
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# IDE and OS files
+.idea/
+.vscode/
+.history/
+*.iml
+*.swp
+*.swo
+*.orig
+*.rej
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "defaultMode": "accept-edits",
+    "allow": [
+      "Shell(git status:*)",
+      "Shell(git diff:*)",
+      "Shell(git log:*)",
+      "Shell(git show:*)",
+      "Shell(git rev-parse:*)",
+      "Shell(git branch --show-current:*)",
+      "mcp__agent-toolkit__*",
+      "mcp__exa__*"
+    ]
+  },
+  "tasteLearning": true
+}

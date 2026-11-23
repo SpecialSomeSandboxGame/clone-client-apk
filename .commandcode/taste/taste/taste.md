@@ -1,0 +1,12 @@
+# Taste
+- Communicates in Indonesian (Bahasa Indonesia) and expects replies in Indonesian. Confidence: 0.7
+- Never uses emoji in any output. Confidence: 0.9
+- Never uses the em dash character (U+2014) in any output. Confidence: 0.9
+- Writes all code artifacts in English: identifiers, comments, docstrings, log messages, and commit messages. Confidence: 0.9
+- Comments must explain the reasoning behind code, never restate what the code already says, and must not read as AI-generated boilerplate. Confidence: 0.85
+- Wants project structure that stays flexible for future growth while avoiding over-engineering (applies Rule of Three, YAGNI). Confidence: 0.8
+- Defers technical decisions to the assistant: when offered options with a recommendation, prefers the assistant pick and commit the recommended choice rather than blocking on further questions. Confidence: 0.6
+- Keeps agent-generated artifacts (plans, task lists, rules, memory) inside `.mandor/`, not in the repo root; corrects the assistant when it proposes a root-level path like `tasks/plan.md`. Confidence: 0.6
+- Never includes a `Co-authored-by` trailer or any co-author credit in git commits, and wants any co-author configuration, commit template, trailer, or hook disabled or removed. Confidence: 0.95
+- Keeps API keys in environment variables (e.g. `EXA_API_KEY`) and expects configs to reference the env var instead of embedding the secret literal. Confidence: 0.7
+- Keeps CI minimal: prefers a build-on-push-to-`main` workflow that publishes an artifact, and rejects tag-triggered automated GitHub Release workflows as unnecessary. Confidence: 0.6

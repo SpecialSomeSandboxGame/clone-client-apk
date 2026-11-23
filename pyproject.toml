@@ -1,0 +1,43 @@
+[project]
+name = "cloneclient"
+version = "0.5.0"
+description = "Desktop APK repackager packaged as a standalone Windows executable."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lief>=1.0.0",
+    "pillow>=13.0.0",
+    "pyaxmlparser>=0.3.31",
+    "PySide6>=6.8,<7",
+]
+
+[project.gui-scripts]
+cloneclient = "cloneclient.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-qt>=4.4",
+    "ruff>=0.6",
+    "pyinstaller>=6.10",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cloneclient"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: end-to-end tests that need Java and a large XAPK"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv", "build", "dist", ".opencode", ".commandcode", ".mandor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
